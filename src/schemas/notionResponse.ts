@@ -1,3 +1,4 @@
+import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
 import { z } from "zod";
 
 const SelectSchema = z.object({
@@ -86,29 +87,26 @@ const NotionDatabaseSchema = z.object({
   object: z.string(),
   results: z.array(
     z.object({
-      object: z.literal("page"),
+      object: z.string(),
       id: z.string(),
       created_time: z.string().datetime(),
       last_edited_time: z.string().datetime(),
       created_by: z.any(),
       last_edited_by: z.any(),
       cover: z.null(),
-      icon: z.null(),
+      icon: z.any().nullable(),
       parent: z.any(),
       archived: z.boolean(),
       in_trash: z.boolean(),
       properties: PropertiesSchema,
       url: z.string().url(),
-      public_url: z.null().optional(),
+      public_url: z.string().nullable().optional(),
     })
   ),
   next_cursor: z.string().nullable(),
-  has_more: z.boolean(),
+  has_more: z.boolean().optional(),
   type: z.string(),
-  //   TODO: Add other fields based on your API response
-  //   page_or_database: z.object(),
   request_id: z.string(),
-  // Add other fields based on your API response
 });
 
 export type NotionDatabase = z.infer<typeof NotionDatabaseSchema>;

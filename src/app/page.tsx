@@ -2,7 +2,7 @@ import Image from "next/image";
 import { getNotionData } from "@/utils/getNotionData";
 
 export default async function Home() {
-  const { results } = await getNotionData();
+  const results = await getNotionData();
   return (
     <main className="flex min-h-screen flex-col items-start justify-between p-4">
       <section>
@@ -14,10 +14,10 @@ export default async function Home() {
         <p>~</p>
 
         <ul>
-          {results.map((item) => (
+          {results.map((item, index) => (
             <li key={item.id}>
               <a className="underline" href={item.properties.Link.url || ""}>
-                {item.properties.Name.title[0].plain_text}
+                {index + 1}. {item.properties.Name.title[0].plain_text}
               </a>
               <p className="italic">
                 <a href={item.url || ""}>
