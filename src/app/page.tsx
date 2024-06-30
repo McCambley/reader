@@ -1,9 +1,31 @@
 import Image from "next/image";
+import { getNotionData } from "@/utils/getNotionData";
 
-export default function Home() {
+export default async function Home() {
+  const { results } = await getNotionData();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Hello, World!
+    <main className="flex min-h-screen flex-col items-start justify-between p-4">
+      <section>
+        <h1 className="text-xl underline">
+          <a href="https://www.notion.so/mccambley/7f8031e04775419f95253a87b6882cae?v=adc32b420cf24186a970ce0305bfbae1">
+            Articles
+          </a>
+        </h1>
+
+        <ul>
+          {results.map((article) => (
+            <li key={article.id}>
+              <a className="underline" href={article.properties.Link.url || ""}>
+                {article.properties.Name.title[0].plain_text}
+              </a>
+              <p className="italic">
+                {new Date(article.created_time).toDateString()}
+              </p>
+              <p className="">-</p>
+            </li>
+          ))}
+        </ul>
+      </section>
     </main>
   );
 }
