@@ -21,7 +21,6 @@ export default async function Home() {
               <p className="italic">
                 {new Date(article.created_time).toDateString()}
               </p>
-              <p className="">-</p>
             </li>
           ))}
         </ul>
