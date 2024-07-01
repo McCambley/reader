@@ -2,20 +2,18 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import { revalidatePath } from "next/cache";
+import { clearCache } from "@/utils/clearCache";
 
 export const RefreshButton: React.FC = () => {
   const router = useRouter();
   const onClick = () => {
-    revalidatePath("/");
-
-    window.location.reload();
+    clearCache();
     router.refresh();
   };
 
   return (
     <button
-      className="fixed bottom-8 right-8 rounded-lg bg-white p-1 min-w-8 min-h-8 filter grayscale"
+      className="fixed bottom-8 right-8  text-2xl rounded-lg bg-white p-1 min-w-12 min-h-12 filter grayscale active:filter-none hover:filter-none active:scale-95"
       onClick={onClick}
     >
       ♻️
