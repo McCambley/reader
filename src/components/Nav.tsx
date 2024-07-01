@@ -7,7 +7,6 @@ const links = ["/best", "/new", "/read", "/random", "/all"];
 
 export const Nav: React.FC = () => {
   const path = usePathname();
-  console.log({ path });
   return (
     <nav className="flex gap-2 items-end sticky top-0 bg-black z-10 pb-2">
       <h1 className="text-xl underline">
