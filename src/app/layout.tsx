@@ -33,6 +33,7 @@ export default function RootLayout({
             <Link href={"/new"}> /new </Link>
             <Link href={"/read"}> /read </Link>
             <Link href={"/random"}> /random </Link>
+            <Link href={"/all"}> /all </Link>
             {/* <Links pages={results} /> */}
             {children}
           </section>
