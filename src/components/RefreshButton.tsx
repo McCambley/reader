@@ -8,12 +8,8 @@ export const RefreshButton: React.FC = () => {
   const router = useRouter();
   const onClick = () => {
     revalidatePath("/");
-    revalidatePath("/best");
-    revalidatePath("/new");
-    revalidatePath("/read");
-    revalidatePath("/random");
-    revalidatePath("/all");
-    // window.location.reload();
+
+    window.location.reload();
     router.refresh();
   };
 
