@@ -7,7 +7,6 @@ interface LinkProps {
 }
 
 export const Link: React.FC<LinkProps> = ({ page, index }) => {
-  console.log(page.properties.Link.url);
   const status = page.properties.Status.select?.name;
   const statusColor = page.properties.Status.select?.color;
   const importance = page.properties.Importance.select?.name;

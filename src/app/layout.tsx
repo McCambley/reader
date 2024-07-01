@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
+// import { Links } from "@/components/Links";
+// import { getNotionData } from "@/utils/getNotionData";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,9 +17,27 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const results = await getNotionData();
+
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <main className="flex min-h-screen flex-col items-start justify-between p-4">
+          <section>
+            <h1 className="text-xl underline">
+              <a href="https://www.notion.so/mccambley/7f8031e04775419f95253a87b6882cae?v=adc32b420cf24186a970ce0305bfbae1">
+                reader.
+              </a>
+            </h1>
+            <Link href={"/best"}> /best </Link>
+            <Link href={"/new"}> /new </Link>
+            <Link href={"/read"}> /read </Link>
+            <Link href={"/random"}> /random </Link>
+            {/* <Links pages={results} /> */}
+            {children}
+          </section>
+        </main>
+      </body>
     </html>
   );
 }

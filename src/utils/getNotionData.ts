@@ -4,25 +4,37 @@ import {
   NotionDatabaseSchema,
   NotionDatabase,
 } from "../schemas/notionResponse";
-import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
+import {
+  QueryDatabaseResponse,
+  QueryDatabaseParameters,
+} from "@notionhq/client/build/src/api-endpoints";
 
 const notionAPIKey = process.env.NOTION_API_KEY;
 const databaseId = process.env.NOTION_DATABASE_ID as string;
 
+interface GetNotionDataArguments {
+  filter?: QueryDatabaseParameters["filter"];
+  sorts?: QueryDatabaseParameters["sorts"];
+  limit?: boolean;
+}
+
 // Initializing a client
 const notion = new Client({ auth: notionAPIKey });
 
-export async function getNotionData() {
+export async function getNotionData({
+  filter,
+  sorts,
+  limit = true,
+}: GetNotionDataArguments) {
   let hasMore: boolean | undefined = true;
   let startCursor: string | null = null;
   let results: NotionDatabase["results"] = [];
-  let count = 0;
-  // @ts-ignore
-  while (hasMore && count < 1) {
+  while (hasMore) {
     const response = await notion.databases.query({
       database_id: databaseId,
       start_cursor: startCursor ? startCursor : undefined,
-      // page_size: 5,
+      filter: filter,
+      sorts,
     });
 
     const validationResult = NotionDatabaseSchema.safeParse(response);
@@ -35,20 +47,9 @@ export async function getNotionData() {
       throw new Error("Invalid Notion API response");
     }
 
-    if (count === 4) {
-      throw new Error("Hanging");
-    }
-
     results = results.concat(validationResult.data.results);
-    hasMore = validationResult.data.has_more;
+    hasMore = limit ? false : validationResult.data.has_more;
     startCursor = validationResult.data.next_cursor;
-    console.log({
-      result: validationResult.data,
-      hasMore,
-      startCursor,
-      count,
-    });
-    count++;
   }
 
   return results;
