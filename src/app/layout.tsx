@@ -24,16 +24,16 @@ export default function RootLayout({
       <body className={inter.className}>
         <main className="flex min-h-screen flex-col items-start justify-between p-4">
           <section>
-            <h1 className="text-xl underline">
-              <a href="https://www.notion.so/mccambley/7f8031e04775419f95253a87b6882cae?v=adc32b420cf24186a970ce0305bfbae1">
-                reader.
-              </a>
-            </h1>
-            <Link href={"/best"}> /best </Link>
-            <Link href={"/new"}> /new </Link>
-            <Link href={"/read"}> /read </Link>
-            <Link href={"/random"}> /random </Link>
-            <Link href={"/all"}> /all </Link>
+            <nav className="flex gap-2 items-end sticky top-0 bg-black z-10 pb-2">
+              <h1 className="text-xl underline">
+                <Link href="/">reader.</Link>
+              </h1>
+              <Link href={"/best"}> /best </Link>
+              <Link href={"/new"}> /new </Link>
+              <Link href={"/read"}> /read </Link>
+              <Link href={"/random"}> /random </Link>
+              <Link href={"/all"}> /all </Link>
+            </nav>
             {/* <Links pages={results} /> */}
             {children}
           </section>
