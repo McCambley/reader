@@ -1,10 +1,13 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 
 export const RefreshButton: React.FC = () => {
+  const router = useRouter();
   const onClick = () => {
-    window.location.reload();
+    // window.location.reload();
+    router.refresh();
   };
 
   return (
