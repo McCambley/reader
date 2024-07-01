@@ -18,10 +18,11 @@ export async function getNotionData() {
   let results: NotionDatabase["results"] = [];
   let count = 0;
   // @ts-ignore
-  while (hasMore && count < 5) {
+  while (hasMore && count < 1) {
     const response = await notion.databases.query({
       database_id: databaseId,
       start_cursor: startCursor ? startCursor : undefined,
+      // page_size: 5,
     });
 
     const validationResult = NotionDatabaseSchema.safeParse(response);
