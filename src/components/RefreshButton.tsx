@@ -2,10 +2,17 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
+import { revalidatePath } from "next/cache";
 
 export const RefreshButton: React.FC = () => {
   const router = useRouter();
   const onClick = () => {
+    revalidatePath("/");
+    revalidatePath("/best");
+    revalidatePath("/new");
+    revalidatePath("/read");
+    revalidatePath("/random");
+    revalidatePath("/all");
     // window.location.reload();
     router.refresh();
   };
