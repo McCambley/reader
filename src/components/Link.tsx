@@ -7,14 +7,14 @@ interface LinkProps {
 }
 
 export const Link: React.FC<LinkProps> = ({ page, index }) => {
-  const status = page.properties.Status.select?.name;
+  // const status = page.properties.Status.select?.name;
   const statusColor = page.properties.Status.select?.color;
   const importance = page.properties.Importance.select?.name;
   const facet = page.properties.Facet.select?.name;
   const url = page.properties.Link.url;
   const pageUrl = page.url;
-  const source = page.properties.Source.select?.name;
-  const checked = page.properties.Checked.checkbox;
+  // const source = page.properties.Source.select?.name;
+  // const checked = page.properties.Checked.checkbox;
   const name = page.properties.Name.title[0].plain_text;
   const shortenedUrl = url?.split("/")[2];
   const createdTime = new Date(
@@ -26,7 +26,7 @@ export const Link: React.FC<LinkProps> = ({ page, index }) => {
     day: "numeric",
   });
   const type = page.properties.Type.select?.name;
-  const tags = page.properties.Tags.multi_select.map((tag) => tag.name);
+  // const tags = page.properties.Tags.multi_select.map((tag) => tag.name);
 
   return (
     <li key={page.id}>
