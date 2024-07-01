@@ -110,4 +110,6 @@ const NotionDatabaseSchema = z.object({
 });
 
 export type NotionDatabase = z.infer<typeof NotionDatabaseSchema>;
+export type NotionDatabasePages = NotionDatabase["results"];
+export type NotionDatabasePage = NotionDatabasePages[number];
 export { NotionDatabaseSchema };

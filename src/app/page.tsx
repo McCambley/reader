@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getNotionData } from "@/utils/getNotionData";
+import { Links } from "@/components/Links";
 
 export default async function Home() {
   const results = await getNotionData();
@@ -12,22 +13,7 @@ export default async function Home() {
           </a>
         </h1>
         <p>~</p>
-
-        <ul>
-          {results.map((item, index) => (
-            <li key={item.id}>
-              <a className="underline" href={item.properties.Link.url || ""}>
-                {index + 1}. {item.properties.Name.title[0].plain_text}
-              </a>
-              <p className="italic">
-                <a href={item.url || ""}>
-                  {new Date(item.created_time).toDateString()}
-                </a>
-              </p>
-              -
-            </li>
-          ))}
-        </ul>
+        <Links pages={results} />
       </section>
     </main>
   );
