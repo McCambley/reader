@@ -2,5 +2,5 @@
 import { revalidatePath } from "next/cache";
 
 export async function clearCache() {
-  return revalidatePath("/");
+  return revalidatePath("/", "layout");
 }
