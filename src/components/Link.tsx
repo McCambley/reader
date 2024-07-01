@@ -11,7 +11,7 @@ export const Link: React.FC<LinkProps> = ({ page, index }) => {
   const statusColor = page.properties.Status.select?.color;
   const importance = page.properties.Importance.select?.name;
   const facet = page.properties.Facet.select?.name;
-  const url = page.properties.Link.url;
+  const url = page.properties.Link.url || page.url;
   const pageUrl = page.url;
   // const source = page.properties.Source.select?.name;
   // const checked = page.properties.Checked.checkbox;
