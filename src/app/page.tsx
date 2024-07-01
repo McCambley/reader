@@ -9,10 +9,9 @@ export default async function Home() {
       <section>
         <h1 className="text-xl underline">
           <a href="https://www.notion.so/mccambley/7f8031e04775419f95253a87b6882cae?v=adc32b420cf24186a970ce0305bfbae1">
-            Reading List
+            reader.
           </a>
         </h1>
-        <p>~</p>
         <Links pages={results} />
       </section>
     </main>
