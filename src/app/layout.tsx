@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
-// import { Links } from "@/components/Links";
-// import { getNotionData } from "@/utils/getNotionData";
+import { Nav } from "@/components/Nav";
+import { RefreshButton } from "@/components/RefreshButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,19 +23,11 @@ export default function RootLayout({
       <body className={inter.className}>
         <main className="flex min-h-screen flex-col items-start justify-between p-4">
           <section>
-            <nav className="flex gap-2 items-end sticky top-0 bg-black z-10 pb-2">
-              <h1 className="text-xl underline">
-                <Link href="/">reader.</Link>
-              </h1>
-              <Link href={"/best"}> /best </Link>
-              <Link href={"/new"}> /new </Link>
-              <Link href={"/read"}> /read </Link>
-              <Link href={"/random"}> /random </Link>
-              <Link href={"/all"}> /all </Link>
-            </nav>
+            <Nav />
             {/* <Links pages={results} /> */}
             {children}
           </section>
+          <RefreshButton />
         </main>
       </body>
     </html>
