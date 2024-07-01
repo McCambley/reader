@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { getNotionData } from "@/utils/getNotionData";
 import { Links } from "@/components/Links";
 import { getRandomItems } from "@/utils/getRandomItems";
