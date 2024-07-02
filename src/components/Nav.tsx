@@ -20,8 +20,7 @@ export const Nav: React.FC = () => {
       {LINKS.map((link, index) => (
         <Link key={link} href={link}>
           <span className={shouldUnderline(link) ? "underline" : ""}>
-            {" "}
-            {link}{" "}
+            {link}
           </span>
         </Link>
       ))}
