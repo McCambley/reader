@@ -1,10 +1,16 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
+import { IBM_Plex_Mono as Font } from "next/font/google";
+
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { RefreshButton } from "@/components/RefreshButton";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
+const font = Font({
+  subsets: ["latin"],
+  weight: ["400", "500", "300", "700"],
+});
 
 export const metadata: Metadata = {
   title: "reader.",
@@ -20,7 +26,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={font.className}>
         <main className="flex min-h-screen flex-col items-start justify-between p-4">
           <section>
             <Nav />
