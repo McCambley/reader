@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 // import { Inter as Font } from "next/font/google";
-import { IBM_Plex_Mono as Font } from "next/font/google";
+import { Open_Sans as Font } from "next/font/google";
 
 import "./globals.css";
 import { Nav } from "@/components/Nav";
