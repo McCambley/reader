@@ -40,7 +40,7 @@ export const Link: React.FC<LinkProps> = ({ page, index }) => {
   // const tags = page.properties.Tags.multi_select.map((tag) => tag.name);
 
   return (
-    <li key={page.id} className="mb-4">
+    <li key={page.id} className="mb-3">
       <a className="" href={url || ""}>
         <span className={colorClass}>
           {index + 1}. {name}
