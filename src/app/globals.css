@@ -3,32 +3,44 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-hex: #000000;
+  --background-start-hex: #ffffff;
+  --background-end-hex: #ffffff;
+  --unread-link-hex: #a21f1f;
+  --in-progress-link-hex: #384bc2;
+  --completed-link-hex: #466216;
+  --base-text-hex: #000000;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --foreground-hex: #ffffff;
+    --background-start-hex: #000000;
+    --background-end-hex: #000000;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--foreground-hex);
+  background: linear-gradient(to bottom, transparent, var(--background-end-hex))
+    var(--background-start-hex);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .unread-link {
+    color: var(--unread-link-hex);
+  }
+  .in-progress-link {
+    color: var(--in-progress-link-hex);
+  }
+  .completed-link {
+    color: var(--completed-link-hex);
+  }
+  .base-text {
+    color: var(--base-text-hex);
   }
 }
 
