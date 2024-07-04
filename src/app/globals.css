@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --foreground-hex: #252422;
-  --background-start-hex: #fffcf2;
+  --foreground-hex: #fffcf2;
+  --background-start-hex: #252422;
   --background-end-hex: var(--background-start-hex);
   --unread-link-hex: var(--foreground-hex);
   --in-progress-link-hex: #dc2f02;
