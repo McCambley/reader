@@ -48,11 +48,11 @@ export const Link: React.FC<LinkProps> = ({ page, index }) => {
         <span className="opacity-50">({shortenedUrl})</span>
       </a>
       {/* <p className="italic text-xs"> */}
-      <p className="italic">
+      <p className="italic opacity-50">
         {importance ? (
           <span className="not-italic">{importance} · </span>
         ) : null}
-        <a href={pageUrl || ""} className="opacity-50">
+        <a href={pageUrl || ""}>
           <span>{createdTime} · </span>
           {facet ? <span>{facet} </span> : null}
           {type ? <span>{type} </span> : null}
