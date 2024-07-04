@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --foreground-hex: #fffcf2;
-  --background-start-hex: #252422;
+  --foreground-hex: #252422;
+  --background-start-hex: #fffcf2;
   --background-end-hex: var(--background-start-hex);
   --unread-link-hex: var(--foreground-hex);
   --in-progress-link-hex: #dc2f02;
@@ -12,13 +12,13 @@
   --base-text-hex: var(--foreground-hex);
 }
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root {
-    --foreground-hex: #000000;
-    --background-start-hex: #ffffff;
-    --background-end-hex: #ffffff;
+    --foreground-hex: #fffcf2;
+    --background-start-hex: #252422;
+    --background-end-hex: #252422;
   }
-} */
+}
 
 nav {
   background: var(--background-start-hex);
