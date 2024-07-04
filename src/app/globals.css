@@ -3,30 +3,51 @@
 @tailwind utilities;
 
 :root {
-  --foreground-hex: #000000;
-  --background-start-hex: #ffffff;
-  --background-end-hex: #ffffff;
-  --unread-link-hex: #a21f1f;
-  --in-progress-link-hex: #384bc2;
-  --completed-link-hex: #466216;
-  --base-text-hex: #000000;
+  --foreground-hex: #252422;
+  --background-start-hex: #fffcf2;
+  --background-end-hex: var(--background-start-hex);
+  --unread-link-hex: var(--foreground-hex);
+  --in-progress-link-hex: #dc2f02;
+  --completed-link-hex: var(--foreground-hex);
+  --base-text-hex: var(--foreground-hex);
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-hex: #ffffff;
-    --background-start-hex: #000000;
-    --background-end-hex: #000000;
+    --foreground-hex: #000000;
+    --background-start-hex: #ffffff;
+    --background-end-hex: #ffffff;
   }
-}
+} */
 
-body {
-  color: var(--foreground-hex);
-  background: linear-gradient(to bottom, transparent, var(--background-end-hex))
-    var(--background-start-hex);
+nav {
+  background: var(--background-start-hex);
+  color: var(--base-text-hex);
+  font-weight: 700;
 }
 
 @layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .unread-link {
+    font-weight: 700;
+    color: var(--unread-link-hex);
+  }
+  .in-progress-link {
+    font-weight: 700;
+    color: var(--in-progress-link-hex);
+  }
+  .completed-link {
+    color: var(--completed-link-hex);
+    opacity: 0.5;
+  }
+  .base-text {
+    color: var(--base-text-hex);
+  }
+}
+
+@layer components {
   .text-balance {
     text-wrap: balance;
   }
@@ -45,6 +66,10 @@ body {
 }
 
 body {
+  color: var(--base-text-hex);
+  /* background: linear-gradient(to bottom, transparent, var(--background-end-hex))
+    var(--background-start-hex); */
+  background: var(--background-start-hex);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";

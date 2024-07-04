@@ -25,9 +25,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${font.className} base-text`}>
-        {/* <body> */}
-        <main className="flex min-h-screen text-xs flex-col items-start justify-between p-4">
+      <body className={font.className}>
+        <main className="flex min-h-screen text-sm flex-col items-start justify-between p-4">
           <section>
             <Nav />
             {children}

@@ -13,7 +13,7 @@ export const Nav: React.FC = () => {
     path === link || (onHomepage && link === DEFAULT_PATH);
 
   return (
-    <nav className="flex gap-2 items-end sticky top-0 bg-black z-10 pb-2">
+    <nav className="flex gap-2 items-end sticky top-0 z-10 pb-2">
       <h1 className="text-xl underline">
         <Link href="/">reader.</Link>
       </h1>
