@@ -7,7 +7,7 @@
   --background-start-hex: #fffcf2;
   --background-end-hex: var(--background-start-hex);
   --unread-link-hex: var(--foreground-hex);
-  --in-progress-link-hex: #dc2f02;
+  --in-progress-link-hex: #fd3d0d;
   --completed-link-hex: var(--foreground-hex);
   --base-text-hex: var(--foreground-hex);
 }
