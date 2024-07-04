@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 // import { Inter as Font } from "next/font/google";
-import { Open_Sans as Font } from "next/font/google";
+// import { Roboto_Slab as Font } from "next/font/google";
+import { IBM_Plex_Mono as Font } from "next/font/google";
+// import { Open_Sans as Font } from "next/font/google";
 
 import "./globals.css";
 import { Nav } from "@/components/Nav";
@@ -23,7 +25,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={font.className}>
+      {/* <body className={font.className}>*/}
+      <body>
         <main className="flex min-h-screen flex-col items-start justify-between p-4">
           <section>
             <Nav />
