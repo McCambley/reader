@@ -36,7 +36,8 @@ export const Link: React.FC<LinkProps> = ({ page, index }) => {
         </span>{" "}
         <span className="opacity-50">({shortenedUrl})</span>
       </a>
-      <p className="italic text-xs">
+      {/* <p className="italic text-xs"> */}
+      <p className="italic">
         {importance ? (
           <span className="not-italic">{importance} · </span>
         ) : null}
