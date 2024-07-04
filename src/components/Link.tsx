@@ -49,9 +49,9 @@ export const Link: React.FC<LinkProps> = ({ page, index }) => {
       </a>
       {/* <p className="italic text-xs"> */}
       <p className="italic opacity-50">
-        {/* {importance ? (
+        {importance ? (
           <span className="not-italic">{importance} · </span>
-        ) : null} */}
+        ) : null}
         <a href={pageUrl || ""}>
           <span>{createdTime} · </span>
           {facet ? <span>{facet} </span> : null}
