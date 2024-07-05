@@ -41,7 +41,7 @@ interface LinkProps {
 
 export const Link: React.FC<LinkProps> = ({ page, index }) => {
   const colorClass = parseLinkClass(page.properties.Status.select?.color);
-  const importance = page.properties.Importance.select?.name;
+  const importance = page.properties.Importance.select?.name.substring(1);
   const facet = page.properties.Facet.select?.name;
   const url = page.properties.Link.url || page.url;
   const pageUrl = page.url;
@@ -63,17 +63,18 @@ export const Link: React.FC<LinkProps> = ({ page, index }) => {
 
   return (
     <li key={page.id} className="mb-3">
-      <a className="" href={url || ""}>
-        <span className={colorClass}>
-          {index + 1}. {name}
-        </span>{" "}
-        <span className="opacity-50">({shortenedUrl})</span>
+      <a className={`${colorClass} flex`} href={url || ""}>
+        <span className={`${colorClass} mr-[1ch]`}>{index + 1}.</span>
+        <div>
+          <span className={colorClass}>{name}</span>
+          <span className="opacity-50">({shortenedUrl})</span>
+        </div>
       </a>
       {/* <p className="italic text-xs"> */}
-      <p className="italic opacity-50">
+      <p className="italic opacity-50 flex">
         {importance ? <span className="not-italic">{importance}</span> : null}
-        <a href={pageUrl || ""}>
-          {spacing}
+        {spacing}
+        <a href={pageUrl || ""} className="">
           <span>{createdTime} · </span>
           {facet ? <span>{facet} </span> : null}
           {type ? <span>{type} </span> : null}
