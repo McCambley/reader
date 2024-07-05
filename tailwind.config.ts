@@ -6,7 +6,17 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  safelist: ["unread-link", "in-progress-link", "completed-link", "base-text"],
+  safelist: [
+    "unread-link",
+    "in-progress-link",
+    "completed-link",
+    "base-text",
+    "mr-[1ch]",
+    "mr-[2ch]",
+    "mr-[3ch]",
+    "mr-[4ch]",
+    "mr-[5ch]",
+  ],
   theme: {
     extend: {
       backgroundImage: {
