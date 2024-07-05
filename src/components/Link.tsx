@@ -18,7 +18,7 @@ const calculateSpacing = (
   index: number,
   importance: string | undefined
 ): JSX.Element => {
-  const indexLength = (index + 1).toString().length + 2;
+  const indexLength = Math.max(4, (index + 1).toString().length);
   const importanceLength = importance ? importance.length : 0;
   const absoluteLength = indexLength - importanceLength;
 
@@ -32,6 +32,10 @@ const calculateSpacing = (
       }}
     ></span>
   );
+};
+
+const calculateNumberMargin = (index: number): number => {
+  return 4 - ((index + 1).toString().length + 1);
 };
 
 interface LinkProps {
@@ -64,7 +68,11 @@ export const Link: React.FC<LinkProps> = ({ page, index }) => {
   return (
     <li key={page.id} className="mb-3">
       <a className={`${colorClass} flex`} href={url || ""}>
-        <span className={`${colorClass} mr-[1ch]`}>{index + 1}.</span>
+        <span
+          className={`${colorClass} mr-[${calculateNumberMargin(index)}ch]`}
+        >
+          {index + 1}.
+        </span>
         <div>
           <span className={colorClass}>{name}</span>
           <span className="opacity-50">({shortenedUrl})</span>
