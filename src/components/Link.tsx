@@ -13,6 +13,27 @@ const parseLinkClass = (color: string | undefined): string => {
       return "";
   }
 };
+
+const calculateSpacing = (
+  index: number,
+  importance: string | undefined
+): JSX.Element => {
+  const indexLength = (index + 1).toString().length + 2;
+  const importanceLength = importance ? importance.length : 0;
+  const absoluteLength = indexLength - importanceLength;
+
+  const spacing = "_".repeat(absoluteLength).length;
+
+  return (
+    <span
+      style={{
+        display: "inline-block",
+        minWidth: `${spacing}ch`,
+      }}
+    ></span>
+  );
+};
+
 interface LinkProps {
   page: NotionDatabasePage;
   index: number;
@@ -37,6 +58,7 @@ export const Link: React.FC<LinkProps> = ({ page, index }) => {
     day: "numeric",
   });
   const type = page.properties.Type.select?.name;
+  const spacing = calculateSpacing(index, importance);
   // const tags = page.properties.Tags.multi_select.map((tag) => tag.name);
 
   return (
@@ -51,6 +73,7 @@ export const Link: React.FC<LinkProps> = ({ page, index }) => {
       <p className="italic opacity-50">
         {importance ? <span className="not-italic">{importance}</span> : null}
         <a href={pageUrl || ""}>
+          {spacing}
           <span>{createdTime} · </span>
           {facet ? <span>{facet} </span> : null}
           {type ? <span>{type} </span> : null}
