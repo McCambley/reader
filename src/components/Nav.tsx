@@ -15,21 +15,23 @@ export const Nav: React.FC = () => {
   return (
     <>
       <nav className="sticky top-0 z-10">
-        <div className="flex gap-2 items-end pb-1">
-          <h1 className="text-xl underline translate-y-[2px]">
+        <div className="text-xl flex gap-2 items-end pb-1">
+          <h1 className="text-xl underline">
             <Link href="/" className="">
               reader.
             </Link>
           </h1>
           {LINKS.map((link, index) => (
-            <Link key={link} href={link} className="">
+            <Link key={link} href={link} className="opacity-50">
               <span className={shouldUnderline(link) ? "underline" : ""}>
                 {link.slice(0, 2)}
               </span>
             </Link>
           ))}
         </div>
-        <p className="pb-2 opacity-50">{path}</p>
+        <p className="pb-2 opacity-50">
+          {path?.length === 1 ? DEFAULT_PATH : path}
+        </p>
       </nav>
     </>
   );
