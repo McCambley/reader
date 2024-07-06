@@ -7,6 +7,6 @@ export async function Random() {
     limit: false,
     filter: { property: "Status", select: { does_not_equal: "Finished" } },
   });
-  const randomItems = getRandomItems(results, 10);
+  const randomItems = getRandomItems(results, 30);
   return <Links pages={randomItems} />;
 }

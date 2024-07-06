@@ -1,6 +1,7 @@
-import { Best } from "@/components/Best";
-import { revalidatePath } from "next/cache";
+import { Random } from "@/components/Random";
+import { clearCache } from "@/utils/clearCache";
 
 export default async function Home() {
-  return <Best />;
+  clearCache();
+  return <Random />;
 }
