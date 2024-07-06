@@ -41,7 +41,7 @@ export const Link: React.FC<LinkProps> = ({ page, index }) => {
     <li key={page.id} className="mb-3 grid grid-cols-[4ch_1fr]">
       <p className={colorClass}>{index + 1}.</p>
       <a className={colorClass} href={url || ""}>
-        <span className={colorClass}>
+        <span>
           {name} <span className="opacity-50">({shortenedUrl})</span>
         </span>
       </a>
