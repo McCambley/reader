@@ -1,6 +1,6 @@
-import { Random } from "@/components/Random";
+import { Shuffle } from "@/components/Shuffle";
 import { revalidatePath } from "next/cache";
 
 export default async function Home() {
-  return <Random />;
+  return <Shuffle />;
 }
