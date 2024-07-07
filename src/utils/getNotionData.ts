@@ -1,5 +1,5 @@
 import { Client } from "@notionhq/client";
-import { z } from "zod";
+import { clearCache } from "./clearCache";
 import {
   NotionDatabaseSchema,
   NotionDatabase,
@@ -26,31 +26,39 @@ export async function getNotionData({
   sorts,
   limit = true,
 }: GetNotionDataArguments) {
-  let hasMore: boolean | undefined = true;
-  let startCursor: string | null = null;
-  let results: NotionDatabase["results"] = [];
-  while (hasMore) {
-    const response = await notion.databases.query({
-      database_id: databaseId,
-      start_cursor: startCursor ? startCursor : undefined,
-      filter: filter,
-      sorts,
-    });
+  try {
+    let hasMore: boolean | undefined = true;
+    let startCursor: string | null = null;
+    let results: NotionDatabase["results"] = [];
+    while (hasMore) {
+      const response = await notion.databases.query({
+        database_id: databaseId,
+        start_cursor: startCursor ? startCursor : undefined,
+        filter: filter,
+        sorts,
+      });
 
-    const validationResult = NotionDatabaseSchema.safeParse(response);
+      const validationResult = NotionDatabaseSchema.safeParse(response);
 
-    if (!validationResult?.success) {
-      console.error(
-        "Validation error:",
-        JSON.stringify(validationResult.error, null, 2)
-      );
-      throw new Error("Invalid Notion API response");
+      if (!validationResult?.success) {
+        console.error(
+          "Validation error:",
+          JSON.stringify(validationResult.error, null, 2)
+        );
+        throw new Error("Invalid Notion API response");
+      }
+
+      results = results.concat(validationResult.data.results);
+      hasMore = limit ? false : validationResult.data.has_more;
+      startCursor = validationResult.data.next_cursor;
     }
 
-    results = results.concat(validationResult.data.results);
-    hasMore = limit ? false : validationResult.data.has_more;
-    startCursor = validationResult.data.next_cursor;
+    // Clear the cache after fetching the data
+    await clearCache();
+    // Return the results
+    return results;
+  } catch (error) {
+    console.error("Error fetching Notion data:", error);
+    return [];
   }
-
-  return results;
 }
