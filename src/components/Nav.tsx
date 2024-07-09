@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 // const LINKS = ["/shuffle", "/best", "/new", "/read", "/all", "/favorites"];
-const LINKS = ["/random", "/top", "/new", "/done", "/all", "/favorites"];
+const LINKS = ["/top", "/random", "/new", "/done", "/all", "/favorites"];
 const DEFAULT_PATH = LINKS[0];
 
 export const Nav: React.FC = () => {
@@ -41,7 +41,10 @@ export const Nav: React.FC = () => {
             {path?.length === 1 ? DEFAULT_PATH : path}
           </p>
         </div>
-        <button className="help-button text-xl rounded-full p-1 " onClick={handleHelpClick}>
+        <button
+          className="help-button text-xl rounded-full p-1 "
+          onClick={handleHelpClick}
+        >
           ?
         </button>
       </nav>
