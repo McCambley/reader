@@ -1,5 +1,6 @@
 import React from "react";
 import { NotionDatabasePage } from "@/schemas/notionResponse";
+import { LinkLink } from "./LinkLink";
 
 const parseLinkClass = (color: string | undefined): string => {
   switch (color) {
@@ -21,6 +22,7 @@ interface LinkProps {
 
 export const Link: React.FC<LinkProps> = ({ page, index }) => {
   const colorClass = parseLinkClass(page.properties.Status.select?.color);
+  const status = page.properties.Status.select?.name;
   const importance = page.properties.Importance.select?.name.substring(1);
   const facet = page.properties.Facet.select?.name;
   const url = page.properties.Link.url || page.url;
@@ -40,11 +42,16 @@ export const Link: React.FC<LinkProps> = ({ page, index }) => {
   return (
     <li key={page.id} className="mb-3 grid grid-cols-[4ch_1fr]">
       <p className={colorClass}>{index + 1}.</p>
-      <a className={colorClass} href={url || ""}>
+      <LinkLink
+        className={colorClass}
+        href={url || ""}
+        pageId={page.id}
+        status={status}
+      >
         <span>
           {name} <span className="opacity-50">({shortenedUrl})</span>
         </span>
-      </a>
+      </LinkLink>
       <p className="opacity-50">{importance ? importance : ""}</p>
       <p className="italic opacity-50 flex">
         <a href={pageUrl || ""} className="">
