@@ -26,7 +26,7 @@ nav {
   font-weight: 700;
 }
 
-button {
+.help-button {
   @apply rounded-full flex items-center justify-center aspect-square w-[2rem] h-[2rem] border opacity-50;
   border-color: var(--base-text-hex);
 }

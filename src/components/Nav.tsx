@@ -41,7 +41,7 @@ export const Nav: React.FC = () => {
             {path?.length === 1 ? DEFAULT_PATH : path}
           </p>
         </div>
-        <button className="text-xl rounded-full p-1 " onClick={handleHelpClick}>
+        <button className="help-button text-xl rounded-full p-1 " onClick={handleHelpClick}>
           ?
         </button>
       </nav>
