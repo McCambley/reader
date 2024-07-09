@@ -53,8 +53,6 @@ export async function getNotionData({
       startCursor = validationResult.data.next_cursor;
     }
 
-    // Clear the cache after fetching the data
-    await clearCache();
     // Return the results
     return results;
   } catch (error) {
