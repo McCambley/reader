@@ -22,12 +22,12 @@ export const RefreshButton: React.FC = () => {
 
   return (
     <button
-      className={`fixed bottom-8 right-8 flex items-center justify-center text-2xl rounded-full bg-white p-1 min-w-12 min-h-12 ${
+      className={`fixed bottom-8 right-8 flex items-center justify-center text-2xl rounded-full bg-white p-1 max-w-8 max-h-8 ${
         loading ? "animate-spin" : ""
       }`}
       onClick={onClick}
     >
-      <Image src="/refresh.svg" width={32} height={32} alt="refresh" />
+      <Image src="/refresh.svg" width={24} height={24} alt="refresh" />
     </button>
   );
 };
