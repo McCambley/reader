@@ -4,7 +4,7 @@ import { Links } from "@/components/Links";
 
 export async function Videos() {
   let results = await getNotionData({
-    filter: { property: "Status", select: { does_not_equal: "Finished" } },
+    // filter: { property: "Status", select: { does_not_equal: "Finished" } },
     sorts: [
       {
         property: "Status",
