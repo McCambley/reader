@@ -24,10 +24,12 @@ export const LinkLink: React.FC<LinkLinkProps> = ({
     async (e: React.MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
       window.open(url);
+      /*
       if (status === "On Deck") {
         await updateNotionPage({ pageId, status: "Working" });
         router.refresh();
       }
+      */
     };
 
   return (
