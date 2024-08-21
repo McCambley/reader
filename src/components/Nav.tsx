@@ -4,7 +4,15 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 // const LINKS = ["/shuffle", "/best", "/new", "/read", "/all", "/favorites"];
-const LINKS = ["/top", "/random", "/new", "/done", "/all", "/favorites"];
+const LINKS = [
+  "/top",
+  "/random",
+  "/new",
+  "/done",
+  "/all",
+  "/videos",
+  "/favorites",
+];
 const DEFAULT_PATH = LINKS[0];
 
 export const Nav: React.FC = () => {
