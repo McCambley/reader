@@ -25,6 +25,7 @@ export const LinkLink: React.FC<LinkLinkProps> = ({
       e.preventDefault();
       window.open(url);
       /*
+      // Uncomment this block to update the status of the page in Notion
       if (status === "On Deck") {
         await updateNotionPage({ pageId, status: "Working" });
         router.refresh();
