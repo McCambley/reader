@@ -2,22 +2,11 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-
-// const LINKS = ["/shuffle", "/best", "/new", "/read", "/all", "/favorites"];
-const LINKS = [
-  "/top",
-  "/random",
-  "/new",
-  "/done",
-  "/all",
-  "/videos",
-  "/favorites",
-];
-const DEFAULT_PATH = LINKS[0];
+import { LINKS, DEFAULT_PATH, HOME } from "@/app/constants";
 
 export const Nav: React.FC = () => {
   const path = usePathname();
-  const onHomepage = path === "/";
+  const onHomepage = path === HOME;
   const shouldUnderline = (link: string): boolean =>
     path === link || (onHomepage && link === DEFAULT_PATH);
 

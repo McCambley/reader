@@ -7,6 +7,7 @@ import { IBM_Plex_Mono as Font } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { RefreshButton } from "@/components/RefreshButton";
+import { SwipeableContainer } from "@/components/SwipeableContainer";
 
 const font = Font({
   subsets: ["latin"],
@@ -29,7 +30,7 @@ export default function RootLayout({
         <main className="flex min-h-screen text-xs flex-col items-start justify-between p-4">
           <section className="w-full">
             <Nav />
-            {children}
+            <SwipeableContainer>{children}</SwipeableContainer>
           </section>
           <RefreshButton />
         </main>
