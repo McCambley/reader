@@ -4,10 +4,7 @@ import {
   NotionDatabaseSchema,
   NotionDatabase,
 } from "../schemas/notionResponse";
-import {
-  QueryDatabaseResponse,
-  QueryDatabaseParameters,
-} from "@notionhq/client/build/src/api-endpoints";
+import { QueryDatabaseParameters } from "@notionhq/client/build/src/api-endpoints";
 
 const notionAPIKey = process.env.NOTION_API_KEY;
 const databaseId = process.env.NOTION_DATABASE_ID as string;
@@ -26,6 +23,7 @@ export async function getNotionData({
   sorts,
   limit = true,
 }: GetNotionDataArguments) {
+  clearCache();
   try {
     let hasMore: boolean | undefined = true;
     let startCursor: string | null = null;
