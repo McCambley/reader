@@ -7,6 +7,11 @@ export const LINKS = [
   "/all",
   "/videos",
   "/favorites",
+  "/data",
 ];
+
+export const LINK_ALIASES: { [key: string]: string } = {
+  "/data": "/#",
+};
 export const HOME = "/";
 export const DEFAULT_PATH = LINKS[0];

@@ -2,7 +2,7 @@
 import React from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LINKS, DEFAULT_PATH, HOME } from "@/app/constants";
+import { LINKS, DEFAULT_PATH, HOME, LINK_ALIASES } from "@/app/constants";
 
 export const Nav: React.FC = () => {
   const path = usePathname();
@@ -29,7 +29,9 @@ export const Nav: React.FC = () => {
               <Link key={link} href={link} className="opacity-50">
                 <span>{link.slice(0, 1)}</span>
                 <span className={shouldUnderline(link) ? "underline" : ""}>
-                  {link.slice(1, 2)}
+                  {LINK_ALIASES[link]
+                    ? LINK_ALIASES[link].slice(1, 2)
+                    : link.slice(1, 2)}
                 </span>
               </Link>
             ))}
