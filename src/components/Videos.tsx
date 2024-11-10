@@ -1,10 +1,23 @@
 import Image from "next/image";
 import { getNotionData } from "@/utils/getNotionData";
 import { Links } from "@/components/Links";
+import { mediaSources } from "@/app/constants";
 
 export async function Videos() {
   let results = await getNotionData({
-    // filter: { property: "Status", select: { does_not_equal: "Finished" } },
+    filter: {
+      and: [
+        { property: "Status", select: { does_not_equal: "Finished" } },
+        {
+          or: [
+            ...mediaSources.map((source) => ({
+              property: "Link",
+              url: { contains: source },
+            })),
+          ],
+        },
+      ],
+    },
     sorts: [
       {
         property: "Status",
@@ -17,9 +30,5 @@ export async function Videos() {
       },
     ],
   });
-  // This could be optimized by filtering the results in the getNotionData function
-  results = results.filter((result) =>
-    result?.properties?.Link?.url?.includes("youtube")
-  );
   return <Links pages={results} />;
 }

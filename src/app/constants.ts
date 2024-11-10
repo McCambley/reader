@@ -15,3 +15,5 @@ export const LINK_ALIASES: { [key: string]: string } = {
 };
 export const HOME = "/";
 export const DEFAULT_PATH = LINKS[0];
+
+export const mediaSources = ["soundcloud.com", "youtube.com", "spotify.com"];
