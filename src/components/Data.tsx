@@ -30,7 +30,18 @@ function createFrequencyObjects(
   const frequencyObject: { [key: string]: Counts } = {};
   for (const key of keys) {
     frequencyObject[key] = createFrequencyObject(
-      data.map((r: any) => r.properties[key].select)
+      data.map((r: any) => {
+        switch (key) {
+          case "Link":
+            return {
+              name:
+                r.properties[key].url?.replace("www.", "").split("/")[2] ||
+                "other",
+            };
+          default:
+            return r.properties[key].select;
+        }
+      })
     );
   }
   return frequencyObject;
@@ -39,9 +50,11 @@ function createFrequencyObjects(
 export async function Data() {
   const results = await getNotionData({ limit: false });
 
+  console.log(results.map((r) => r.properties.Link));
+
   const totalCount = results.length;
   const counts = createFrequencyObjects(
-    ["Status", "Importance", "Facet", "Type", "Source"],
+    ["Status", "Importance", "Facet", "Type", "Source", "Link"],
     results
   );
 
