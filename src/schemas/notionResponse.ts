@@ -1,5 +1,5 @@
 import { QueryDatabaseResponse } from "@notionhq/client/build/src/api-endpoints";
-import { z } from "zod";
+import { string, z } from "zod";
 
 const SelectSchema = z.object({
   id: z.string(),
@@ -93,7 +93,14 @@ const NotionDatabaseSchema = z.object({
       last_edited_time: z.string().datetime(),
       created_by: z.any(),
       last_edited_by: z.any(),
-      cover: z.null(),
+      cover: z
+        .object({
+          type: z.string(),
+          external: z.object({
+            url: z.string(),
+          }),
+        })
+        .nullable(),
       icon: z.any().nullable(),
       parent: z.any(),
       archived: z.boolean(),
