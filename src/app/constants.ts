@@ -1,5 +1,5 @@
-// const LINKS = ["/shuffle", "/best", "/new", "/read", "/all", "/favorites"];
 export const LINKS = [
+  "/twenty",
   "/top",
   "/random",
   "/new",
@@ -11,7 +11,8 @@ export const LINKS = [
 ];
 
 export const LINK_ALIASES: { [key: string]: string } = {
-  "/data": "/#",
+  "/data": "#",
+  "/twenty": "20",
 };
 export const HOME = "/";
 export const DEFAULT_PATH = LINKS[0];

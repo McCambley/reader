@@ -29,9 +29,7 @@ export const Nav: React.FC = () => {
               <Link key={link} href={link} className="opacity-50">
                 <span>{link.slice(0, 1)}</span>
                 <span className={shouldUnderline(link) ? "underline" : ""}>
-                  {LINK_ALIASES[link]
-                    ? LINK_ALIASES[link].slice(1, 2)
-                    : link.slice(1, 2)}
+                  {LINK_ALIASES[link] ? LINK_ALIASES[link] : link.slice(1, 2)}
                 </span>
               </Link>
             ))}
