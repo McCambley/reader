@@ -11,6 +11,7 @@ export async function updateNotionPage({
   status = "Working",
 }: {
   pageId: string;
+  // TODO: Turn these into constants in case someone renames these in notion
   status?: "Working" | "On Deck" | "Finished";
 }) {
   try {
