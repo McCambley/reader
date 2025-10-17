@@ -1,9 +1,11 @@
 export const LINKS = [
   "/twenty",
   "/top",
-  "/random",
+  // Remove for user testing
+  // "/random",
   "/new",
-  "/done",
+  // Remove for user testing
+  // "/done",
   "/all",
   "/videos",
   "/favorites",
