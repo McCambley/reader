@@ -50,8 +50,6 @@ function createFrequencyObjects(
 export async function Data() {
   const results = await getNotionData({ limit: false });
 
-  console.log(results.map((r) => r.properties.Link));
-
   const totalCount = results.length;
   const counts = createFrequencyObjects(
     ["Status", "Importance", "Facet", "Type", "Source", "Link"],

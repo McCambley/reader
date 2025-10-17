@@ -12,6 +12,5 @@ export async function Favorites() {
       },
     ],
   });
-  console.log({ results: results.map((r) => r.properties) });
   return <Links pages={results} />;
 }

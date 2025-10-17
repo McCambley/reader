@@ -25,7 +25,6 @@ export async function updateNotionPage({
         },
       },
     });
-    console.log(response);
   } catch (error) {
     console.error("Error updating Notion page:", error);
   }
