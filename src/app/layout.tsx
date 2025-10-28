@@ -2,11 +2,16 @@ import type { Metadata } from "next";
 // import { Inter as Font } from "next/font/google";
 // import { Roboto_Slab as Font } from "next/font/google";
 import { IBM_Plex_Mono as Font } from "next/font/google";
+import dynamic from "next/dynamic";
+
 // import { Open_Sans as Font } from "next/font/google";
+const SearchInput = dynamic(() => import("../components/SearchInput"), {
+  ssr: false,
+});
 
 import "./globals.css";
 import { Nav } from "@/components/Nav";
-import { RefreshButton } from "@/components/RefreshButton";
+// import { RefreshButton } from "@/components/RefreshButton";
 import { SwipeableContainer } from "@/components/SwipeableContainer";
 
 const font = Font({
@@ -27,12 +32,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <main className="flex min-h-screen text-xs flex-col items-start justify-between p-4">
+        <main className="flex min-h-screen text-xs flex-col items-start justify-between px-4 py-2">
           <section className="w-full">
             <Nav />
             <SwipeableContainer>{children}</SwipeableContainer>
           </section>
-          <RefreshButton />
+          {/* <RefreshButton /> */}
+          <SearchInput />
         </main>
       </body>
     </html>

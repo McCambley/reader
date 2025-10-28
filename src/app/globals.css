@@ -81,6 +81,9 @@ tr td:first-of-type {
   .base-text {
     color: var(--base-text-hex);
   }
+  .search-input {
+    background-color: var(--background-start-hex);
+  }
 }
 
 body {

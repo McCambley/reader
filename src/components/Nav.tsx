@@ -16,7 +16,7 @@ export const Nav: React.FC = () => {
     );
   };
   return (
-    <nav className="sticky top-0 z-10 flex justify-between w-full">
+    <nav className="sticky top-0 z-10 flex justify-between w-full pt-2">
       <div>
         <div className="text-xl flex gap-2 items-end pb-1">
           <h1 className="text-xl">
@@ -37,12 +37,12 @@ export const Nav: React.FC = () => {
           {path?.length === 1 ? DEFAULT_PATH : path}
         </p>
       </div>
-      <button
+      {/* <button
         className="help-button text-xl rounded-full p-1 "
         onClick={handleHelpClick}
       >
         ?
-      </button>
+      </button> */}
     </nav>
   );
 };

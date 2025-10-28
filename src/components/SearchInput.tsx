@@ -16,19 +16,23 @@ const SearchInput = () => {
   };
 
   return (
-    <form action="/search" className="pb-2 flex gap-2">
+    <form
+      action="/search"
+      className="flex gap-2 fixed w-full bottom-0 left-0 px-2 py-2 h-10"
+    >
       <label htmlFor="query" className="hidden">
         Search
       </label>
       <input
         type="text"
         id="query"
+        placeholder="Search..."
         name="query"
         value={value}
         onChange={handleChange}
-        className="bg-transparent rounded-full border-neutral-50 border pl-1"
+        className=" rounded-full border-neutral-50 border pl-2 w-full search-input"
       />
-      <button type="submit" className="border px-2 rounded-full">
+      <button type="submit" className="border px-2 rounded-full search-input">
         search
       </button>
     </form>
