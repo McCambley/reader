@@ -20,9 +20,11 @@ export const RefreshButton: React.FC = () => {
     }
   }, [loading]);
 
+  return null;
+
   return (
     <button
-      className={`fixed bottom-8 right-8 flex items-center justify-center text-2xl rounded-full bg-white p-1 min-w-10 min-h-10 ${
+      className={`fixed bottom-8 right-2 flex items-center justify-center text-2xl rounded-full bg-white p-1 min-w-10 min-h-10 ${
         loading ? "animate-spin" : ""
       }`}
       onClick={onClick}
