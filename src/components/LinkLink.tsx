@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { updateNotionPage } from "@/utils/updateNotionPage";
 import { useRouter } from "next/navigation";
 
 interface LinkLinkProps {
