@@ -32,7 +32,7 @@ export async function getNotionData({
       const response = await notion.databases.query({
         database_id: databaseId,
         start_cursor: startCursor ? startCursor : undefined,
-        filter: filter,
+        filter,
         sorts,
       });
 
