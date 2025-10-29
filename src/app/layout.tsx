@@ -3,7 +3,14 @@ import type { Metadata } from "next";
 // import { Roboto_Slab as Font } from "next/font/google";
 import { IBM_Plex_Mono as Font } from "next/font/google";
 import dynamic from "next/dynamic";
-import Head from "next/head";
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
 
 // import { Open_Sans as Font } from "next/font/google";
 const SearchInput = dynamic(() => import("../components/SearchInput"), {
@@ -32,12 +39,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1"
-        />
-      </Head>
       <body className={font.className}>
         <main className="flex min-h-screen text-xs flex-col items-start justify-between px-4 py-2">
           <section className="w-full">
