@@ -18,7 +18,7 @@ const SearchInput = () => {
   return (
     <form
       action="/search"
-      className="flex gap-2 fixed w-full bottom-0 left-0 px-10 py-2 h-10"
+      className="flex gap-2 fixed w-full bottom-0 left-0 px-10 py-4 h-12"
     >
       <label htmlFor="query" className="hidden">
         Search
