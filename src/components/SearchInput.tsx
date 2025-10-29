@@ -18,7 +18,7 @@ const SearchInput = () => {
   return (
     <form
       action="/search"
-      className="flex gap-2 fixed w-full bottom-0 left-0 px-10 py-4 h-12"
+      className="flex gap-2 fixed w-full bottom-0 left-0 px-10 py-4 h-16"
     >
       <label htmlFor="query" className="hidden">
         Search
@@ -32,7 +32,7 @@ const SearchInput = () => {
         onChange={handleChange}
         className=" rounded-full border-neutral-50 border pl-2 w-full search-input"
       />
-      <button type="submit" className="border px-2 rounded-full search-input">
+      <button type="submit" className="border px-3 rounded-full search-input">
         search
       </button>
     </form>
